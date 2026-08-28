@@ -1,5 +1,7 @@
 # Symbolic Regression for Astronomical Object (Star / Galaxy / Quasar) Classification
 
+![plot](./webapp.png)
+
 This repo tests whether a single closed-form equation can classify SDSS DR16 sources as well as tuned machine learning models, using spectroscopic redshift as the only input feature.
 
 The short version: it can. A 7-node expression discovered by PySR stays within about 0.1 percent of the best black-box model on every experiment we ran.
