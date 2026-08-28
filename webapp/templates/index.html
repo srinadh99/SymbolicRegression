@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}" />
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <h1>{{ title }}</h1>
+      <p class="subtitle">
+        Three-class classification ({{ task }}) from spectroscopic redshift alone,
+        using the models trained in this project.
+      </p>
+    </header>
+
+    <section class="controls">
+      <div class="control control-z">
+        <div class="control-top">
+          <label for="z-slider">Redshift <em>z</em></label>
+          <input
+            id="z-number"
+            type="number"
+            min="{{ z_min }}"
+            max="{{ z_max }}"
+            step="{{ z_step }}"
+            value="0.30"
+            aria-label="Redshift value"
+          />
+        </div>
+        <div class="slider-row">
+          <span class="bound">{{ '%.1f'|format(z_min) }}</span>
+          <input
+            id="z-slider"
+            type="range"
+            min="{{ z_min }}"
+            max="{{ z_max }}"
+            step="{{ z_step }}"
+            value="0.30"
+          />
+          <span class="bound">{{ '%.1f'|format(z_max) }}</span>
+        </div>
+      </div>
+
+      <div class="control control-exp">
+        <label for="experiment">Experiment</label>
+        <select id="experiment">
+          {% for exp in experiments %}
+          <option value="{{ exp.key }}" {% if exp.key == default_experiment %}selected{% endif %}>
+            {{ exp.label }}
+          </option>
+          {% endfor %}
+        </select>
+        <p class="hint" id="experiment-hint"></p>
+      </div>
+    </section>
+
+    <p class="error" id="error" hidden></p>
+
+    <section class="cards" id="cards" aria-live="polite"></section>
+
+    <footer class="page-footer">
+      Predictions come from the saved models. Nothing is retrained here.
+    </footer>
+  </main>
+
+  <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>

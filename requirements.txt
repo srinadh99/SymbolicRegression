@@ -1,0 +1,15 @@
+joblib==1.4.2
+matplotlib==3.11.1
+numpy==2.5.2
+pandas==3.0.5
+pysr==2.0.0
+scikit_learn==1.9.0
+scipy==1.18.1
+seaborn==0.13.2
+sympy==1.12
+
+# Web app only. Install alongside the project's requirements.txt.
+fastapi>=0.110
+uvicorn[standard]>=0.27
+jinja2>=3.1
+

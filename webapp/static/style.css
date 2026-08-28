@@ -1,0 +1,218 @@
+:root {
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --ink: #16202b;
+  --muted: #6b7885;
+  --line: #dfe4ea;
+  --accent: #1f4e79;
+  --radius: 10px;
+}
+
+/* Class colours match the notebook palette. */
+:root {
+  --star: #d62728;
+  --galaxy: #1f4e79;
+  --qso: #2ca02c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 56px;
+}
+
+.page-header h1 {
+  margin: 0 0 6px;
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin: 28px 0 24px;
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.control label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.control-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.control-top label { margin-bottom: 0; }
+
+#z-number {
+  width: 110px;
+  padding: 6px 10px;
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  text-align: right;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.bound {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+#z-slider {
+  flex: 1;
+  height: 4px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+#experiment {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hint {
+  margin: 10px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 132px;
+  padding: 18px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.card-model {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+
+.card-label {
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.card-class {
+  margin-top: 2px;
+  font-size: 1.5rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.card-class[data-class="STAR"]   { color: var(--star); }
+.card-class[data-class="GALAXY"] { color: var(--galaxy); }
+.card-class[data-class="QSO"]    { color: var(--qso); }
+
+.card-extra {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.card-extra code {
+  display: block;
+  margin-top: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.card-extra .numbers {
+  display: block;
+  margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.card.is-error .card-class {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--star);
+}
+
+/* Dim the cards while a request is in flight. */
+.cards.is-stale { opacity: 0.55; }
+
+.error {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  color: #93312f;
+  background: #fdf2f2;
+  border: 1px solid #f0c4c4;
+  border-radius: 6px;
+}
+
+.page-footer {
+  margin-top: 26px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  .controls, .cards { grid-template-columns: 1fr; }
+}
