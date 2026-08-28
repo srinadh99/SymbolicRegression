@@ -1,4 +1,4 @@
-# Symbolic Regression for Star / Galaxy / Quasar Classification
+# Symbolic Regression for Astronomical Object (Star / Galaxy / Quasar) Classification
 
 This repo tests whether a single closed-form equation can classify SDSS DR16 sources as well as tuned machine learning models, using spectroscopic redshift as the only input feature.
 
